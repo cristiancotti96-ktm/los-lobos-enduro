@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 // import { stripe } from "@/lib/stripe"; // Assuming stripe lib is created later
 import { supabase } from "@/lib/supabase";
 
+export const runtime = 'edge';
+
 export async function POST(req: Request) {
     // Mock Stripe Signature Verification
     // In a real app, you would verify the Stripe signature here
