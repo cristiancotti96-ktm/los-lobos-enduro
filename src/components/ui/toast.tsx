@@ -115,7 +115,7 @@ ToastDescriptionOriginal.displayName = ToastDescription.displayName
 
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
 
-type ToastActionElement = React.ReactElement<typeof ToastAction>
+export type { ToastProps, ToastActionElement }
 
 export {
     ToastProviderOriginal as ToastProvider,
