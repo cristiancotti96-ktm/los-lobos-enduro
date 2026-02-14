@@ -37,6 +37,6 @@
     "eslint-config-next": "14.1.4"
   },
   "overrides": {
-    "next": "$next"
+    "next": "14.1.4"
   }
 }
