@@ -62,5 +62,17 @@ No le des a "Save and Deploy" todavía. Busca la sección **Environment variable
 
 ### Solución de Problemas Comunes
 
-*   **Error de Imágenes**: Si al entrar las imágenes no cargan o dan error 500, es posible que necesites habilitar la optimización de imágenes en Cloudflare (Pro) o desactivarla en Next.js. Si te pasa, edita `next.config.mjs` y descomenta `unoptimized: true`.
-*   **Error de Base de Datos**: Si no carga la lista de eventos, verifica que tus Environment Variables en Cloudflare sean exactamente iguales a las de tu `.env.local` y que no tengan espacios extra.
+#### ❌ Error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH`
+Si ves este error al intentar abrir tu web:
+**¡No te asustes, el código está bien!**
+Este error significa que Cloudflare está **generando el certificado de seguridad (SSL)**.
+1.  **Espera 10-15 minutos**: Es el tiempo normal de propagación para un dominio nuevo.
+2.  **Prueba en Incognito**: A veces tu navegador guarda el error en caché.
+3.  **Verifica en el Dashboard**: Ve a la pestaña **Custom Domains** en tu proyecto de Pages. Debería decir "Active" (verde). Si dice "Initializing" (naranja), solo sigue esperando.
+
+#### 🛠️ Error de Imágenes (500)
+Si las imágenes no cargan o dan error 500:
+Edita `next.config.mjs` y descomenta `unoptimized: true` dentro de `images: { ... }`. Esto desactiva la optimización automática que a veces falla en el plan gratuito si no está configurada.
+
+#### 🔍 Error de Base de Datos
+Si no carga la lista de eventos, verifica que tus Environment Variables en Cloudflare sean exactamente iguales a las de tu `.env.local` y que no tengan espacios extra.
